@@ -15,8 +15,15 @@ public class InvoiceGenerator {
         double totalfare = 0;
         for (Ride ride:rides) {
             totalfare += calculateTotalFare(ride.distance, ride.time);
-
         }
         return new InvoiceSummary(rides.length,totalfare);
+    }
+
+    public InvoiceSummaryWithId invoiceList(InvoiceSummaryWithId[] summary, int id) {
+        InvoiceSummaryWithId result = null;
+        for (InvoiceSummaryWithId summaryWithId : summary) {
+            if (summaryWithId.getId() == id ) result = summaryWithId;
+        }
+        return result;
     }
 }
